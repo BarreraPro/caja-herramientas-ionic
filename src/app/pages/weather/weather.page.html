@@ -1,0 +1,47 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Clima en RD</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <section class="page-shell weather-shell">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Santo Domingo, República Dominicana</ion-card-title>
+        <ion-card-subtitle>Clima actual vía Open-Meteo</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-button expand="block" (click)="refresh()" [disabled]="loading">
+          <ion-icon slot="start" name="refresh-outline"></ion-icon>
+          Actualizar clima
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-spinner *ngIf="loading" name="crescent"></ion-spinner>
+    <ion-note color="danger" *ngIf="error">{{ error }}</ion-note>
+
+    <ion-card *ngIf="weather?.current_weather" class="weather-card">
+      <ion-card-content>
+        <div class="temperature">{{ weather?.current_weather?.temperature }}°C</div>
+        <ion-grid>
+          <ion-row>
+            <ion-col size="12" size-md="4">
+              <strong>Viento</strong>
+              <span>{{ weather?.current_weather?.windspeed }} km/h</span>
+            </ion-col>
+            <ion-col size="12" size-md="4">
+              <strong>Dirección</strong>
+              <span>{{ weather?.current_weather?.winddirection }}°</span>
+            </ion-col>
+            <ion-col size="12" size-md="4">
+              <strong>Fecha/hora</strong>
+              <span>{{ weather?.current_weather?.time | date:'medium' }}</span>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+  </section>
+</ion-content>

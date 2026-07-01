@@ -1,0 +1,16 @@
+.pokemon-art {
+  display: grid;
+  min-height: 250px;
+  place-items: center;
+  background: #fff7e8;
+}
+
+.pokemon-art img {
+  max-height: 260px;
+  max-width: 86%;
+  object-fit: contain;
+}
+
+h3 {
+  margin: 0 0 10px;
+}

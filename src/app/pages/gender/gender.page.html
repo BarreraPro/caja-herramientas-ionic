@@ -1,0 +1,37 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Predicción de género</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <section class="page-shell">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Consulta por nombre</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item>
+          <ion-input label="Nombre" labelPlacement="stacked" [(ngModel)]="name" placeholder="Ej: irma"></ion-input>
+        </ion-item>
+        <ion-button expand="block" class="ion-margin-top" (click)="predict()" [disabled]="loading">
+          <ion-icon slot="start" name="search-outline"></ion-icon>
+          Consultar
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card *ngIf="result?.gender" [class]="resultClass">
+      <ion-card-header>
+        <ion-card-title>{{ result?.name | titlecase }}</ion-card-title>
+        <ion-card-subtitle>{{ genderLabel }}</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        Probabilidad: {{ (result?.probability || 0) * 100 | number:'1.0-0' }}%
+      </ion-card-content>
+    </ion-card>
+
+    <ion-spinner *ngIf="loading" name="crescent"></ion-spinner>
+    <ion-note color="danger" *ngIf="error">{{ error }}</ion-note>
+  </section>
+</ion-content>

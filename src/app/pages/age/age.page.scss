@@ -1,0 +1,21 @@
+.age-art,
+.age-fallback {
+  display: grid;
+  min-height: 210px;
+  place-items: center;
+}
+
+.age-art img {
+  max-height: 220px;
+  max-width: 82%;
+  object-fit: contain;
+}
+
+.age-fallback {
+  background: #f6f7fb;
+}
+
+.age-fallback ion-icon {
+  color: var(--ion-color-primary);
+  font-size: 72px;
+}

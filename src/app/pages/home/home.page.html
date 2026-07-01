@@ -1,0 +1,42 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Inicio</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <section class="page-shell hero">
+    <div class="hero-panel">
+      <div class="image-stage" *ngIf="toolboxImageAvailable; else toolboxFallback">
+        <img src="assets/img/toolbox.jpg" alt="Caja de herramientas" (error)="hideToolboxImage()" />
+      </div>
+
+      <ng-template #toolboxFallback>
+        <div class="fallback-art">
+          <ion-icon name="construct-outline"></ion-icon>
+        </div>
+      </ng-template>
+
+      <div class="hero-copy">
+        <p class="eyebrow">Menú principal</p>
+        <h1>Caja de herramientas</h1>
+        <p>
+          Accede rápidamente a utilidades conectadas con APIs reales para consultar
+          predicciones, universidades, clima, Pokémon, noticias y datos personales.
+        </p>
+      </div>
+    </div>
+
+    <div class="tool-grid">
+      <ion-card button="true" *ngFor="let tool of tools" [routerLink]="tool.route" class="tool-card">
+        <ion-card-content>
+          <ion-icon [name]="tool.icon"></ion-icon>
+          <div>
+            <h2>{{ tool.title }}</h2>
+            <p>{{ tool.description }}</p>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </section>
+</ion-content>

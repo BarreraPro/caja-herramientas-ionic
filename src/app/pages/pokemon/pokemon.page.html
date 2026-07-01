@@ -1,0 +1,45 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Pokémon</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <section class="page-shell">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Buscar Pokémon</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item>
+          <ion-input label="Pokémon" labelPlacement="stacked" [(ngModel)]="name" placeholder="pikachu"></ion-input>
+        </ion-item>
+        <ion-button expand="block" class="ion-margin-top" (click)="search()" [disabled]="loading">
+          <ion-icon slot="start" name="search-outline"></ion-icon>
+          Buscar
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-spinner *ngIf="loading" name="crescent"></ion-spinner>
+    <ion-note color="danger" *ngIf="error">{{ error }}</ion-note>
+
+    <ion-card *ngIf="pokemon">
+      <div class="pokemon-art">
+        <img [src]="pokemon.sprites.other['official-artwork'].front_default" [alt]="pokemon.name" />
+      </div>
+      <ion-card-header>
+        <ion-card-title>{{ pokemon.name | titlecase }}</ion-card-title>
+        <ion-card-subtitle>Experiencia base: {{ pokemon.base_experience }}</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <h3>Habilidades</h3>
+        <ion-chip *ngFor="let item of pokemon.abilities">{{ item.ability.name }}</ion-chip>
+        <ion-button expand="block" class="ion-margin-top" (click)="playCry()" [disabled]="!pokemon.cries.latest">
+          <ion-icon slot="start" name="volume-high-outline"></ion-icon>
+          Reproducir sonido
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+  </section>
+</ion-content>

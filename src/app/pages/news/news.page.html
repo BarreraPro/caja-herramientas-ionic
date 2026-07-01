@@ -1,0 +1,43 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Noticias WordPress</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <section class="page-shell">
+    <ion-card class="api-card">
+      <ion-card-header>
+        <div class="wordpress-logo">
+          <ion-icon name="logo-wordpress"></ion-icon>
+        </div>
+        <ion-card-title>TechCrunch vía WordPress REST API</ion-card-title>
+        <ion-card-subtitle>API usada para publicar en el foro</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <code>{{ apiUrl }}</code>
+        <ion-button expand="block" class="ion-margin-top" (click)="loadPosts()" [disabled]="loading">
+          <ion-icon slot="start" name="refresh-outline"></ion-icon>
+          Actualizar noticias
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-spinner *ngIf="loading" name="crescent"></ion-spinner>
+    <ion-note color="danger" *ngIf="error">{{ error }}</ion-note>
+    <ion-note *ngIf="!loading && !error && !posts.length">No hay noticias disponibles ahora.</ion-note>
+
+    <ion-card *ngFor="let post of posts">
+      <ion-card-header>
+        <ion-card-title>{{ post.title }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>{{ post.excerpt }}</p>
+        <ion-button fill="clear" [href]="post.link" target="_blank" rel="noopener">
+          Visitar noticia
+          <ion-icon slot="end" name="open-outline"></ion-icon>
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+  </section>
+</ion-content>

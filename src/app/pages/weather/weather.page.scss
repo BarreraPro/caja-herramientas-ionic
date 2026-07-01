@@ -1,0 +1,21 @@
+.weather-card {
+  --background: #eef8f6;
+  border-left: 6px solid #18a999;
+}
+
+.temperature {
+  color: #0f6f65;
+  font-size: 56px;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 18px;
+}
+
+ion-col {
+  display: grid;
+  gap: 6px;
+}
+
+span {
+  color: var(--ion-color-dark);
+}

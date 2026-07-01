@@ -1,0 +1,43 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Universidades</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <section class="page-shell">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Buscar por país</ion-card-title>
+        <ion-card-subtitle>Escribe el nombre del país en inglés</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item>
+          <ion-input label="País" labelPlacement="stacked" [(ngModel)]="country" placeholder="Dominican Republic"></ion-input>
+        </ion-item>
+        <ion-button expand="block" class="ion-margin-top" (click)="search()" [disabled]="loading">
+          <ion-icon slot="start" name="school-outline"></ion-icon>
+          Buscar universidades
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-spinner *ngIf="loading" name="crescent"></ion-spinner>
+    <ion-note color="danger" *ngIf="error">{{ error }}</ion-note>
+    <ion-note *ngIf="searched && !universities.length">No se encontraron universidades para ese país.</ion-note>
+
+    <ion-list *ngIf="universities.length">
+      <ion-item *ngFor="let university of universities">
+        <ion-label>
+          <h2>{{ university.name }}</h2>
+          <p>Dominio: {{ university.domains[0] || 'No disponible' }}</p>
+          <p>
+            <a [href]="university.web_pages[0]" target="_blank" rel="noopener">
+              {{ university.web_pages[0] || 'Sin página web' }}
+            </a>
+          </p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </section>
+</ion-content>

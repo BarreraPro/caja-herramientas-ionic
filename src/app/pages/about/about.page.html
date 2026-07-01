@@ -1,0 +1,59 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Acerca de</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <section class="page-shell about-shell">
+    <ion-card>
+      <ion-card-content>
+        <div class="profile">
+          <img
+            *ngIf="profileImageAvailable; else profileFallback"
+            src="assets/img/profile.png"
+            alt="Foto de perfil"
+            (error)="hideProfileImage()"
+          />
+          <ng-template #profileFallback>
+            <div class="profile-fallback">
+              <ion-icon name="person-circle-outline"></ion-icon>
+            </div>
+          </ng-template>
+        </div>
+
+        <h1>Dayrodis Manuel Barrera Rodríguez</h1>
+        <p class="role">Desarrollador de Software</p>
+
+        <ion-list lines="none">
+          <ion-item>
+            <ion-icon slot="start" name="mail-outline"></ion-icon>
+            <ion-label>
+              <strong>Email</strong>
+              <a href="mailto:debarreradb1208@gmail.com">debarreradb1208@gmail.com</a>
+            </ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-icon slot="start" name="call-outline"></ion-icon>
+            <ion-label>
+              <strong>Teléfono</strong>
+              <span>829-774-2938</span>
+            </ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-icon slot="start" name="logo-github"></ion-icon>
+            <ion-label>
+              <strong>GitHub</strong>
+              <a href="https://github.com/BarreraPro" target="_blank" rel="noopener">BarreraPro</a>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+
+        <p class="availability">
+          Disponible para colaborar en trabajos, proyectos académicos, soluciones web,
+          aplicaciones móviles y oportunidades de desarrollo de software.
+        </p>
+      </ion-card-content>
+    </ion-card>
+  </section>
+</ion-content>

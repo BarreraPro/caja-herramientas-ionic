@@ -1,0 +1,26 @@
+.api-card {
+  border-left: 6px solid #21759b;
+}
+
+.wordpress-logo {
+  display: grid;
+  height: 58px;
+  width: 58px;
+  place-items: center;
+  border-radius: 50%;
+  background: #21759b;
+  color: #ffffff;
+  margin-bottom: 12px;
+}
+
+.wordpress-logo ion-icon {
+  font-size: 38px;
+}
+
+code {
+  display: block;
+  overflow-wrap: anywhere;
+  padding: 10px;
+  border-radius: 8px;
+  background: #f4f6f8;
+}
