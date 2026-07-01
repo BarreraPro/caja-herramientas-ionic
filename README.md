@@ -91,7 +91,7 @@ npx cap sync android
 - Universidades: `https://adamix.net/proxy.php?country=Dominican+Republic`
 - Open-Meteo: `https://api.open-meteo.com/v1/forecast?latitude=18.4861&longitude=-69.9312&current_weather=true&timezone=America%2FSanto_Domingo`
 - PokeAPI: `https://pokeapi.co/api/v2/pokemon/pikachu`
-- WordPress REST API: `https://www.wpbeginner.com/wp-json/wp/v2/posts?per_page=3`
+- WordPress REST API: `https://wptavern.com/wp-json/wp/v2/posts?per_page=3`
 
 La aplicación muestra mensajes de error cuando una consulta externa no responde o no devuelve resultados.
 
