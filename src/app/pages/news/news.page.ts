@@ -29,13 +29,14 @@ export class NewsPage implements OnInit {
 
   loadPosts() {
     this.error = '';
+    this.posts = [];
     this.loading = true;
     this.newsService
       .getLatestPosts()
       .pipe(finalize(() => (this.loading = false)))
       .subscribe({
         next: (posts) => {
-          this.posts = posts.map((post) => this.cleanPost(post));
+          this.posts = posts.slice(0, 3).map((post) => this.cleanPost(post));
         },
         error: () => {
           this.error = 'No se pudieron cargar las noticias de WordPress. Intenta más tarde.';

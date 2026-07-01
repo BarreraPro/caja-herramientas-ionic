@@ -4,7 +4,7 @@ import { WordPressPost } from '../interfaces/api.interfaces';
 
 @Injectable({ providedIn: 'root' })
 export class WordpressNewsService {
-  readonly apiUrl = 'https://techcrunch.com/wp-json/wp/v2/posts?per_page=3';
+  readonly apiUrl = 'https://www.wpbeginner.com/wp-json/wp/v2/posts?per_page=3';
 
   constructor(private http: HttpClient) {}
 

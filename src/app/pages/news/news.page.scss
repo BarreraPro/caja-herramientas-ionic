@@ -1,20 +1,18 @@
 .api-card {
-  border-left: 6px solid #21759b;
+  border-left: 6px solid #ff6600;
 }
 
-.wordpress-logo {
-  display: grid;
-  height: 58px;
-  width: 58px;
-  place-items: center;
-  border-radius: 50%;
-  background: #21759b;
-  color: #ffffff;
+.wpbeginner-logo {
+  display: flex;
+  align-items: center;
+  min-height: 58px;
   margin-bottom: 12px;
 }
 
-.wordpress-logo ion-icon {
-  font-size: 38px;
+.wpbeginner-logo img {
+  max-width: 220px;
+  width: 100%;
+  height: auto;
 }
 
 code {
